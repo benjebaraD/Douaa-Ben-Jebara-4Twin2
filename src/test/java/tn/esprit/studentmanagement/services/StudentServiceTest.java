@@ -44,13 +44,10 @@ class StudentServiceTest {
     void testGetStudentById() {
         Student student = new Student();
         student.setIdStudent(1L);
-
         when(studentRepository.findById(1L)).thenReturn(Optional.of(student));
-
         Student result = studentService.getStudentById(1L);
-
         assertNotNull(result);
-        assertEquals(1L, result.getIdStudent());;
+        assertEquals(1L, result.getIdStudent());
     }
 
     @Test
