@@ -39,13 +39,12 @@ spec:
       - name: spring-app
         image: douaabenjebara/app-spring:1.0
         ports:
-        - containerPort: 8080
+        - containerPort: 8089   
         envFrom:
         - configMapRef:
             name: spring-config
         - secretRef:
             name: spring-secret
-
 ---
 apiVersion: v1
 kind: Service
@@ -58,5 +57,4 @@ spec:
   - port: 8089
     targetPort: 8089
     nodePort: 30080
-  type: NodePort
-
+  type: LoadBalancer  
